@@ -68,7 +68,7 @@ export class DestroyerOfModules {
       if (this.shouldKeepModule(module)) {
         let modulePath = module.path;
         if (relativePaths) {
-          modulePath = modulePath.replace(`${rootPath}${path.sep}`, '');
+          modulePath = path.relative(rootPath, modulePath);
         }
         moduleMap.set(modulePath, module);
       }
